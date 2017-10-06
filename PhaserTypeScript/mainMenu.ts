@@ -1,25 +1,23 @@
-﻿class MainMenu {
-    sound: Phaser.Sound;
-    game: Phaser.Game;
+﻿module PhaserTypescript {
 
-    constructor() {
-    }
+    export class MainMenu extends Phaser.State {
 
-    preload() {
-        this.game.load.image('menuPage', 'Graphics/Menu/titlepage.jpg');
-        this.game.load.image('menuTitle', 'Graphics/menu/logo.png');
-        this.game.load.audio('menuAudio', 'Sounds/title.mp3', true);
-    }
+        background: Phaser.Sprite;
+        logo: Phaser.Sprite;
 
-    create(game) {
-        var menuPage = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'menuPage');
-        var menuTitle = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'menuTitle');
+        create() {
 
-        this.sound = this.game.add.audio('menuAudio', 1, false);
-        this.sound.play();
+            this.background = this.add.sprite(0, 0, 'menuPage');
+            this.background.alpha = 0;
 
-        menuTitle.anchor.setTo(0.5, 1.0);
-        menuPage.anchor.setTo(0.5, 0.5);
+            this.logo = this.add.sprite(this.world.centerX, -300, 'menuTitle');
+            this.logo.anchor.setTo(0.5, 0.5);
+        }
+
+        
+        startGame() {
+
+        }
 
     }
 

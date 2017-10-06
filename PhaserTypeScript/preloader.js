@@ -10,21 +10,21 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var PhaserTypescript;
 (function (PhaserTypescript) {
-    var MainMenu = (function (_super) {
-        __extends(MainMenu, _super);
-        function MainMenu() {
+    var Preloader = (function (_super) {
+        __extends(Preloader, _super);
+        function Preloader() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MainMenu.prototype.create = function () {
-            this.background = this.add.sprite(0, 0, 'menuPage');
-            this.background.alpha = 0;
-            this.logo = this.add.sprite(this.world.centerX, -300, 'menuTitle');
-            this.logo.anchor.setTo(0.5, 0.5);
+        Preloader.prototype.preload = function () {
+            this.load.image('menuPage', 'Graphics/Menu/titlepage.jpg');
+            this.load.image('menuTitle', 'Graphics/Menu/logo.png');
+            this.load.audio('menuMusic', 'Sounds/title.mp3', true);
         };
-        MainMenu.prototype.startGame = function () {
+        Preloader.prototype.create = function () {
+            this.game.state.start('MainMenu', true, false);
         };
-        return MainMenu;
+        return Preloader;
     }(Phaser.State));
-    PhaserTypescript.MainMenu = MainMenu;
+    PhaserTypescript.Preloader = Preloader;
 })(PhaserTypescript || (PhaserTypescript = {}));
-//# sourceMappingURL=mainMenu.js.map
+//# sourceMappingURL=preloader.js.map
